@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/WillianSugiyama/serverless-test/issues"
   },
-  "homepage": "https://github.com/WillianSugiyama/serverless-test#readme"
+  "homepage": "https://github.com/WillianSugiyama/serverless-test#readme",
+  "dependencies": {
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.6"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  }
 }
