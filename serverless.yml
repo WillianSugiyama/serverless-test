@@ -54,3 +54,35 @@ functions:
     handler: src/functions/post/savePost.savePostHandler
     events:
       - sqs: arn:aws:sqs:us-east-1:487009629625:queue
+  getPost:
+    handler: src/functions/post/getOnePost.getOnePostHandler
+    events:
+      - http:
+          path: cms/post
+          method: get
+          request:
+            template:
+              application/json: >
+                {
+                  "id": "$input.params('id')"
+                }
+  getAllPosts:
+    handler: src/functions/post/getAllPosts.getAllPostsHandler
+    events:
+      - http:
+          path: cms/posts
+          method: get
+  deletePost:
+    handler: src/functions/post/deletePost.deletePostHandler
+    events:
+      - http:
+          path: cms/deletePost
+          method: delete
+          authorizer: accessControl
+  editPost:
+    handler: src/functions/post/editPost.editPostHandler
+    events:
+      - http:
+          path: cms/editPost
+          method: put
+          authorizer: accessControl
