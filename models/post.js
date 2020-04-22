@@ -16,6 +16,20 @@ module.exports = (sequelize, DataTypes) => {
       imgUrl: {
         type: DataTypes.STRING,
       },
+      active: {
+        allowNull: false,
+        defaultValue: true,
+        type: DataTypes.BOOLEAN,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        foreignKey: true,
+        references: {
+          model: "User",
+          key: "id",
+        },
+      },
       createdAt: {
         allowNull: false,
         defaultValue: new Date(),
@@ -29,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     }, {}
   );
   Post.associate = function (models) {
-    // associations can be defined here
+    Post.belongsTo(models.User);
   };
   return Post;
 };

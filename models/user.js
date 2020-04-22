@@ -2,8 +2,7 @@ const hashPassword = require("../src/utils/hashPassword");
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User",
-    {
+    "User", {
       username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -31,8 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: new Date(),
         type: DataTypes.DATE,
       },
-    },
-    {
+    }, {
       hooks: {
         beforeSave: (user, options) => {
           return hashPassword
@@ -49,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Post);
   };
   return User;
 };
