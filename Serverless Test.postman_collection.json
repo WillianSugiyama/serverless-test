@@ -1,0 +1,249 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Serverless Test",
+		"_postman_id": "71e40660-0586-0fc9-2456-e6c7b1626747",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login - Serverless Test - User Creator",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IkNvbnRlbnRNYW5hZ2VyIiwicGFzc3dvcmQiOiIkMmEkMTAkUFcucnBOVUZ0cU9la2RNVHhidDBqT1FqUzVvRS8zeWJGQWtlVDVtYW9tN1gxclB3MjRxTWUiLCJhY2Nlc3NHcm91cElkIjoyLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTIyVDA1OjU2OjQyLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTIyVDA1OjU2OjQyLjAwMFoifSwiaWF0IjoxNTg3NTUxNzYzLCJleHAiOjE1ODc2MzgxNjN9.kVMPBXAhmWCeXy8CVDYdpdDLDuYudmXVUU1I0FEGxiE",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"UserCreator\",\n\t\"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login - Serverless Test - Content Manager",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IkNvbnRlbnRNYW5hZ2VyIiwicGFzc3dvcmQiOiIkMmEkMTAkUFcucnBOVUZ0cU9la2RNVHhidDBqT1FqUzVvRS8zeWJGQWtlVDVtYW9tN1gxclB3MjRxTWUiLCJhY2Nlc3NHcm91cElkIjoyLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTIyVDA1OjU2OjQyLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTIyVDA1OjU2OjQyLjAwMFoifSwiaWF0IjoxNTg3NTUxNzYzLCJleHAiOjE1ODc2MzgxNjN9.kVMPBXAhmWCeXy8CVDYdpdDLDuYudmXVUU1I0FEGxiE",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"ContentManager\",\n\t\"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login - Serverless Test - Content Curator",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IkNvbnRlbnRNYW5hZ2VyIiwicGFzc3dvcmQiOiIkMmEkMTAkUFcucnBOVUZ0cU9la2RNVHhidDBqT1FqUzVvRS8zeWJGQWtlVDVtYW9tN1gxclB3MjRxTWUiLCJhY2Nlc3NHcm91cElkIjoyLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTIyVDA1OjU2OjQyLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTIyVDA1OjU2OjQyLjAwMFoifSwiaWF0IjoxNTg3NTUxNzYzLCJleHAiOjE1ODc2MzgxNjN9.kVMPBXAhmWCeXy8CVDYdpdDLDuYudmXVUU1I0FEGxiE",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"UserCreator\",\n\t\"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser - Serverless Test",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/createUser",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IlVzZXJDcmVhdG9yIiwicGFzc3dvcmQiOiIkMmEkMTAkVHZtS2JKWFNXdTZTVC5iNU9CYXFwLkNGVnFSa0pIaFVKeXBCc0RNbU5lSUlHY1k3WjNJbEsiLCJhY2Nlc3NHcm91cElkIjoxLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoifSwiaWF0IjoxNTg3NTY1Mjg1LCJleHAiOjE1ODc2NTE2ODV9.ZRwvj8K-zm0cdgB_qKqqbqvDcEYVn_xruW7FejzIjf4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"UserTest\",\n\t\"password\": \"123456\",\n\t\"accessGroupId\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePost - Serverless Test",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/cms/createPost",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IkNvbnRlbnRNYW5hZ2VyIiwicGFzc3dvcmQiOiIkMmEkMTAkQXRKcXJWM3hRL0dSZHFUQzNUVFRGLmk5UVVaS0V6cTJIRUpLYWJxVU1hai5yV253MnkuRW0iLCJhY2Nlc3NHcm91cElkIjoyLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoifSwiaWF0IjoxNTg3NTY1MzQ4LCJleHAiOjE1ODc2NTE3NDh9.uK2OQZ1veFQVq4GoR3r7v-2ZcPmK6Y3w9iomnwv8FHg",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Title - Post\",\n\t\"subtitle\": \"Subtitle - Post\",\n\t\"content\": \"Content - Post\",\n\t\"imgUrl\": \"http://teste.com/image.png\",\n\t\"active\": true,\n\t\"userId\": 6\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posts",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/cms/posts",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Post by ID",
+			"request": {
+				"url": {
+					"raw": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/cms/post?id=1546",
+					"protocol": "https",
+					"host": [
+						"b8fh3lcd44",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"cms",
+						"post"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1546",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1546\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Post - Serverless Test",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/cms/updatePost",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IkNvbnRlbnRNYW5hZ2VyIiwicGFzc3dvcmQiOiIkMmEkMTAkQXRKcXJWM3hRL0dSZHFUQzNUVFRGLmk5UVVaS0V6cTJIRUpLYWJxVU1hai5yV253MnkuRW0iLCJhY2Nlc3NHcm91cElkIjoyLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoifSwiaWF0IjoxNTg3NTY5Mjc2LCJleHAiOjE1ODc2NTU2NzZ9.8wt4uFMLXP1AwGwdAGcNoGbBsz-UqXSjL7XNQYNDgY8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1594,\n\t\"title\": \"update is good2!\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post - Serverless Test",
+			"request": {
+				"url": "https://b8fh3lcd44.execute-api.us-east-1.amazonaws.com/dev/cms/deletePost",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJ1c2VybmFtZSI6IkNvbnRlbnRNYW5hZ2VyIiwicGFzc3dvcmQiOiIkMmEkMTAkQXRKcXJWM3hRL0dSZHFUQzNUVFRGLmk5UVVaS0V6cTJIRUpLYWJxVU1hai5yV253MnkuRW0iLCJhY2Nlc3NHcm91cElkIjoyLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTIyVDA2OjU5OjM4LjAwMFoifSwiaWF0IjoxNTg3NTY1ODAxLCJleHAiOjE1ODc2NTIyMDF9.yO5nOnj4CUnY-3tA0mpYk-xtr8ZjPvKsqnFMs6b5530",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1594,\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
