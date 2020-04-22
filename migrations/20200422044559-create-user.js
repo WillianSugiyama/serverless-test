@@ -21,7 +21,7 @@ module.exports = {
         allowNull: false,
         foreignKey: true,
         references: {
-          model: "accessGroups",
+          model: "AccessGroups",
           key: "id"
         },
       },
