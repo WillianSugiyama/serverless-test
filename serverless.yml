@@ -1,4 +1,4 @@
-service: test-service
+service: service-for-test
 
 provider:
   name: aws
@@ -43,3 +43,46 @@ functions:
           path: login
           method: post
           cors: true
+  createPost:
+    handler: src/functions/post/createPost.createPostHandler
+    events:
+      - http:
+          path: cms/createPost
+          method: post
+          authorizer: accessControl
+  savePost:
+    handler: src/functions/post/savePost.savePostHandler
+    events:
+      - sqs: arn:aws:sqs:us-east-1:487009629625:queue
+  getPost:
+    handler: src/functions/post/getOnePost.getOnePostHandler
+    events:
+      - http:
+          path: cms/post
+          method: get
+          request:
+            template:
+              application/json: >
+                {
+                  "id": "$input.params('id')"
+                }
+  getAllPosts:
+    handler: src/functions/post/getAllPosts.getAllPostsHandler
+    events:
+      - http:
+          path: cms/posts
+          method: get
+  deletePost:
+    handler: src/functions/post/deletePost.deletePostHandler
+    events:
+      - http:
+          path: cms/deletePost
+          method: delete
+          authorizer: accessControl
+  updatePost:
+    handler: src/functions/post/updatePost.updatePostHandler
+    events:
+      - http:
+          path: cms/updatePost
+          method: put
+          authorizer: accessControl
