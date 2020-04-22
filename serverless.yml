@@ -29,3 +29,10 @@ functions:
           path: createUser
           method: post
           cors: true
+  login:
+    handler: src/functions/auth/login.loginHandler
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true

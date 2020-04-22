@@ -173,4 +173,8 @@ $RECYCLE.BIN/
 
 secrets.json
 
-.webpack/
+*/.webpack
+.webpack/*
+
+
+
