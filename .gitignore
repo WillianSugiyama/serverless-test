@@ -172,3 +172,5 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/node,windows,terraform,serverless
 
 secrets.json
+
+.webpack/
