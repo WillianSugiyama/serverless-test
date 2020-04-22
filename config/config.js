@@ -1,23 +1,23 @@
 module.exports = {
   development: {
-    username: "admin",
+    username: "root",
     password: "admin123",
     database: "testmysql",
-    host: "database-1-instance-1.cnmpb7oqf1yr.us-east-1.rds.amazonaws.com",
+    host: "localhost",
     dialect: "mysql",
   },
   test: {
-    username: "admin",
+    username: "root",
     password: "admin123",
     database: "testmysql",
-    host: "database-1-instance-1.cnmpb7oqf1yr.us-east-1.rds.amazonaws.com",
+    host: "localhost",
     dialect: "mysql",
   },
   production: {
-    username: "admin",
+    username: "root",
     password: "admin123",
     database: "testmysql",
-    host: "database-1-instance-1.cnmpb7oqf1yr.us-east-1.rds.amazonaws.com",
+    host: "localhost",
     dialect: "mysql",
   },
 };

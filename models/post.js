@@ -21,6 +21,15 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: true,
         type: DataTypes.BOOLEAN,
       },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        foreignKey: true,
+        references: {
+          model: "User",
+          key: "id",
+        },
+      },
       createdAt: {
         allowNull: false,
         defaultValue: new Date(),
@@ -34,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     }, {}
   );
   Post.associate = function (models) {
-    Post.hasOne(models.User);
+    Post.belongsTo(models.User);
   };
   return Post;
 };

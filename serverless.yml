@@ -79,10 +79,10 @@ functions:
           path: cms/deletePost
           method: delete
           authorizer: accessControl
-  editPost:
-    handler: src/functions/post/editPost.editPostHandler
+  updatePost:
+    handler: src/functions/post/updatePost.updatePostHandler
     events:
       - http:
-          path: cms/editPost
+          path: cms/updatePost
           method: put
           authorizer: accessControl
