@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 
 export default async function (password) {
   try {
@@ -7,5 +7,5 @@ export default async function (password) {
     return hashPass;
   } catch (error) {
     throw new Error(error);
-  };
+  }
 }
