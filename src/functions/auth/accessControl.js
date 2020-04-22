@@ -1,5 +1,5 @@
-import buildIAMPolicy from '../../utils/buildIAMPolicy';
-import jwt from 'jsonwebtoken';
+import buildIAMPolicy from "../../utils/buildIAMPolicy";
+import jwt from "jsonwebtoken";
 
 const verifyToken = (token) => {
   try {
@@ -10,65 +10,66 @@ const verifyToken = (token) => {
 };
 
 const authorizeUser = (groupScope, methodArn) => {
-  let hasValidScope = false;
-
-  const splitMethodArn = methodArn.split('/');
-  return groupScope.some((k) => k.value === splitMethodArn[splitMethodArn.length - 1]);
+  const splitMethodArn = methodArn.split("/");
+  return groupScope.some(
+    (k) => k.value === splitMethodArn[splitMethodArn.length - 1]
+  );
 };
 
 const groupScope = () => {
   return {
-    1: [{
-      value: 'createUser',
-    }, ],
-    2: [{
-        value: 'createPost',
-      },
+    1: [
       {
-        value: 'updatePost',
-      },
-      {
-        value: 'deletePost',
+        value: "createUser",
       },
     ],
-    3: [{
-        value: 'createPost',
+    2: [
+      {
+        value: "createPost",
       },
       {
-        value: 'updatePost',
+        value: "updatePost",
+      },
+      {
+        value: "deletePost",
+      },
+    ],
+    3: [
+      {
+        value: "createPost",
+      },
+      {
+        value: "updatePost",
       },
     ],
   };
 };
 
 const accessControlHandler = (event, context, callback) => {
-  console.log('--- AUTHORIZE ---');
-  console.log('--- EVENT ---');
-
   const token = event.authorizationToken;
 
   try {
     const decoded = verifyToken(token);
-    console.log(JSON.stringify(decoded));
 
     const user = decoded.user;
-    const isAllowed = authorizeUser(groupScope()[user.accessGroupId], event.methodArn);
-    const effect = isAllowed ? 'Allow' : 'Deny';
+    const isAllowed = authorizeUser(
+      groupScope()[user.accessGroupId],
+      event.methodArn
+    );
+    const effect = isAllowed ? "Allow" : "Deny";
     const userId = user.username;
     const authorizerContext = {
-      user: JSON.stringify(user)
+      user: JSON.stringify(user),
     };
 
     const policyDocument = buildIAMPolicy(userId, effect, event.methodArn);
 
-    console.log('Returning IAM policy document', event.methodArn);
+    console.log("Returning IAM policy document", event.methodArn);
     callback(null, policyDocument);
   } catch (error) {
-    console.log(error.message);
-    callback('Unauthorized');
+    console.log("error", error.message);
+    callback("Unauthorized");
   }
 };
 
-export {
-  accessControlHandler
-};
+export { accessControlHandler };
