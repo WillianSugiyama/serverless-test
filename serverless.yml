@@ -1,0 +1,45 @@
+service: test-service
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+  environment:
+    JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
+    SECRET_ACCESS_KEY: ${self:custom.secrets.SECRET_ACCESS_KEY}
+    ACCESS_KEY: ${self:custom.secrets.ACCESS_KEY}
+  package:
+    individually: true
+    exclude:
+      - node_modules/**
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  secrets: ${file(./secrets.json)}
+
+functions:
+  accessControl:
+    handler: src/functions/auth/accessControl.accessControlHandler
+  createUser:
+    handler: src/functions/user/createUser.createUserHandler
+    events:
+      - http:
+          path: createUser
+          method: post
+          cors: true
+          authorizer:
+            name: accessControl
+            identitySource: method.request.header.Authorization
+            type: token
+            resultTtlInSeconds: 3600
+  login:
+    handler: src/functions/auth/login.loginHandler
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
