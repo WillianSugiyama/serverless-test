@@ -6,7 +6,11 @@ const getAllPosts = async () => {
     const posts = await models.Post.findAll({
       where: {
         active: true,
-      }
+      },
+      include: [{
+        model: models.User,
+        attributes: ['username']
+      }],
     });
 
     if (!posts) {

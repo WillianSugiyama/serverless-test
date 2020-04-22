@@ -2,8 +2,9 @@ import models from "../../../models";
 import lambdaHandler from "../../utils/lambdaHandler";
 
 const softDeletePost = async (body) => {
+  console.log('--- BODY  ----', body);
   try {
-    const softDeletePost = await models.Post.update({
+    await models.Post.update({
       active: false
     }, {
       where: {
@@ -23,7 +24,7 @@ const softDeletePost = async (body) => {
 };
 
 const deletePostHandler = async (event, context, callback) => {
-  const deletedPost = await softDeletePost();
+  const deletedPost = await softDeletePost(JSON.parse(event.body));
 
   await lambdaHandler(
     event,
@@ -35,5 +36,5 @@ const deletePostHandler = async (event, context, callback) => {
 };
 
 export {
-  savePostHandler
+  deletePostHandler
 };

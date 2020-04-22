@@ -5,6 +5,10 @@ const getOnePost = async (id) => {
   try {
     const post = await models.Post.findOne({
       id,
+      include: [{
+        model: models.User,
+        attributes: ['username']
+      }],
     });
 
     if (!post) {
