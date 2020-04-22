@@ -5,3 +5,7 @@ resource "aws_vpc" "vpc" {
   enable_classiclink   = "false"
   instance_tenancy     = "default"
 }
+
+resource "aws_internet_gateway" "aig" {
+  vpc_id = "${aws_vpc.vpc.id}"
+}

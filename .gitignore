@@ -116,7 +116,7 @@ temp/
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
-
+.terraform/*
 # .tfstate files
 *.tfstate
 *.tfstate.*
