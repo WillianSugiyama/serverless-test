@@ -1,4 +1,4 @@
-service: test-service
+service: service-for-test
 
 provider:
   name: aws
@@ -43,3 +43,14 @@ functions:
           path: login
           method: post
           cors: true
+  createPost:
+    handler: src/functions/post/createPost.createPostHandler
+    events:
+      - http:
+          path: cms/createPost
+          method: post
+          authorizer: accessControl
+  savePost:
+    handler: src/functions/post/savePost.savePostHandler
+    events:
+      - sqs: arn:aws:sqs:us-east-1:487009629625:queue
