@@ -29,3 +29,10 @@
 - Set variables on secrets.json
 - Set config on config/config.js (database access) you can up a local db on docker.
 
+# How to initialize DB:
+
+- use the following commands:
+`npx sequelize db:migrate`
+
+- to seed db:
+`npx sequelize db:seed:all`
