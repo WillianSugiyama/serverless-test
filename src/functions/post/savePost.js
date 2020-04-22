@@ -9,7 +9,7 @@ AWS.config.update({
 
 const sqs = new AWS.SQS({
   apiVersion: "2012-11-05",
-  endpoint: "https://sqs.us-east-1.amazonaws.com/487009629625/queue",
+  endpoint: process.env.ENDPOINTSQS,
 });
 
 const savePost = async (body, receipt) => {
@@ -22,19 +22,19 @@ const savePost = async (body, receipt) => {
     });
 
     const params = {
-      QueueUrl: 'https://sqs.us-east-1.amazonaws.com/487009629625/queue',
-      ReceiptHandle: receipt
-    }
+      QueueUrl: process.env.ENDPOINTSQS,
+      ReceiptHandle: receipt,
+    };
 
-    console.log('receipts ', receipt);
+    console.log("receipts ", receipt);
 
     sqs.deleteMessage(params, (err, data) => {
       if (err) {
         throw new Error(err);
       } else {
-        console.log('--- Message Deleted from QUEUE ---');
+        console.log("--- Message Deleted from QUEUE ---");
       }
-    })
+    });
 
     if (newPost) return true;
   } catch (error) {
@@ -61,6 +61,4 @@ const savePostHandler = async (event, context, callback) => {
   callback(null, response);
 };
 
-export {
-  savePostHandler
-};
+export { savePostHandler };

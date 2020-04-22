@@ -21,3 +21,11 @@
   `terraform init`
 - and:
   `terraform apply`
+
+
+
+# How to set envs on project:
+
+- Set variables on secrets.json
+- Set config on config/config.js (database access) you can up a local db on docker.
+
