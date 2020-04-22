@@ -1,8 +1,9 @@
-const hashPass = require("../src/utils/hashPassword");
+const hashPassword = require("../src/utils/hashPassword");
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User", {
+    "User",
+    {
       username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -30,10 +31,12 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: new Date(),
         type: DataTypes.DATE,
       },
-    }, {
+    },
+    {
       hooks: {
         beforeSave: (user, options) => {
-          return hashPass(user.password)
+          return hashPassword
+            .default(user.password)
             .then((hashedPassword) => {
               user.password = hashedPassword;
             })
