@@ -1,46 +1,54 @@
-const models = require('../../../models');
-const verifyIfUserExists = require('./verifyIfUserExists');
+import models from '../../../models';
+import verifyIfUserExists from './verifyIfUserExists';
+import lambdaHandler from '../../utils/lambdaHandler';
 
 const createUser = async (body) => {
-  const {
-    username,
-    password,
-    accessGroupId
-  } = body;
+  try {
 
-  const userExists = await verifyIfUserExists(username);
+    const {
+      username,
+      password,
+      accessGroupId
+    } = body;
 
-  if (userExists) {
+    const userExists = await verifyIfUserExists(username);
+
+    if (userExists) {
+      return {
+        message: 'User already exists',
+        statusCode: 400
+      };
+    }
+
+    const newUser = await models.User.create({
+      username,
+      accessGroupId,
+      password
+    });
+
+
     return {
-      message: 'User already exists',
-      statusCode: 400
-    };
+      message: {
+        ...newUser.dataValues,
+      },
+      statusCode: 200
+    }
+
+
+  } catch (error) {
+    console.log('Internal server error: ', error);
+
+    throw new Error(error);
   }
-
-  const newUser = await models.User.create({
-    username,
-    accessGroupId,
-    password
-  });
-
-  return {
-    message: {
-      ...newUser.dataValues,
-    },
-    status: 200,
-  };
 };
 
-module.exports.createUserHandler = async (event, context, callback) => {
+const createUserHandler = async (event, context, callback) => {
   const body = JSON.parse(event.body);
   const userCreated = await createUser(body);
 
-  context.callbackWaitsForEmptyEventLoop = false
+  await lambdaHandler(event, context, callback, userCreated.statusCode, userCreated.message);
+};
 
-  callback(null, {
-    statusCode: userCreated.status,
-    body: JSON.stringify({
-      message: userCreated.message
-    }),
-  });
+export {
+  createUserHandler
 };
